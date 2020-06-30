@@ -13,7 +13,11 @@ with open('shipment_management/__init__.py', 'rb') as f:
     version = str(ast.literal_eval(_version_re.search(
         f.read().decode('utf-8')).group(1)))
 
-requirements = parse_requirements("requirements.txt", session="")
+try:
+    requirements = [str(ir.req) for ir in install_reqs]
+except:
+    requirements = [str(ir.requirement) for ir in install_reqs]
+
 
 setup(
 	name='shipment_management',
