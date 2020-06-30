@@ -14,9 +14,8 @@ with open('shipment_management/__init__.py', 'rb') as f:
         f.read().decode('utf-8')).group(1)))
 
 with open('requirements.txt') as f:
-	install_requires = f.read().strip().split('\n')
+	requirements = f.read().strip().split('\n')
 
-	
 setup(
 	name='shipment_management',
 	version=version,
